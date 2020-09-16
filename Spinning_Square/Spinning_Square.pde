@@ -1,4 +1,4 @@
-float positionX = 200, positionY = 500, size = 100, speed = 20;
+float positionX = 200, positionY = 500, size = 100, speed = 20, angle = 0;
 void setup(){
   background(255);
   size(1000, 1000);
@@ -13,7 +13,11 @@ void draw(){
   }
   else{
     positionY -= speed;
+    float newOriginX = positionX+(size/2), newOriginY = positionY+(size/2);
+    translate(newOriginX, newOriginY);
+    angle += PI/80;
+    rotate(angle);
+    translate(-newOriginX, -newOriginY);
     rect(positionX, positionY, size, size);
-    rotate(PI/4);
   }
 }
